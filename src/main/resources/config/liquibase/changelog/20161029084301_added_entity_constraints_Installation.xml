@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity Installation.
+    -->
+    <changeSet id="20161029084301-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="release_id"
+                                 baseTableName="installation"
+                                 constraintName="fk_installation_release_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="release"/>
+
+        <addForeignKeyConstraint baseColumnNames="instance_id"
+                                 baseTableName="installation"
+                                 constraintName="fk_installation_instance_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="instance"/>
+
+    </changeSet>
+</databaseChangeLog>

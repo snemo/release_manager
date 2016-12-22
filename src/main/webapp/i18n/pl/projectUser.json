@@ -1,0 +1,25 @@
+{
+    "releasemanagerApp": {
+        "projectUser" : {
+            "home": {
+                "title": "Project Users",
+                "createLabel": "Dodaj Project User",
+                "createOrEditLabel": "Dodaj lub edytuj: Project User",
+                "search": "Search for Project User"
+            },
+            "created": "A new Project User is created with identifier {{ param }}",
+            "updated": "A Project User is updated with identifier {{ param }}",
+            "deleted": "A Project User is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Czy na pewno chcesz usunąć Project User {{ id }}?"
+            },
+            "detail": {
+                "title": "Project User"
+            },
+            "created": "Created",
+            "project": "Project",
+            "user": "User",
+            "createdBy": "Created By"
+        }
+    }
+}

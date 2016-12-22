@@ -1,0 +1,29 @@
+{
+    "releasemanagerApp": {
+        "installation" : {
+            "home": {
+                "title": "Installations",
+                "createLabel": "Dodaj Installation",
+                "createOrEditLabel": "Dodaj lub edytuj: Installation",
+                "search": "Search for Installation"
+            },
+            "created": "A new Installation is created with identifier {{ param }}",
+            "updated": "A Installation is updated with identifier {{ param }}",
+            "deleted": "A Installation is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Czy na pewno chcesz usunąć Installation {{ id }}?"
+            },
+            "detail": {
+                "title": "Installation"
+            },
+            "date": "Date",
+            "notes": "Notes",
+            "success": "Success",
+            "adapterErrors": "Adapter Errors",
+            "configErrors": "Config Errors",
+            "otherErrors": "Other Errors",
+            "release": "Release",
+            "instance": "Instance"
+        }
+    }
+}

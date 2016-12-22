@@ -1,0 +1,58 @@
+
+<div>
+    <h2><span data-translate="releasemanagerApp.release.detail.title">Release</span> {{vm.release.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="releasemanagerApp.release.name">Name</span></dt>
+        <dd>
+            <span>{{vm.release.name}}</span>
+        </dd>
+        <dt><span data-translate="releasemanagerApp.release.description">Description</span></dt>
+        <dd>
+            <span>{{vm.release.description}}</span>
+        </dd>
+        <dt><span data-translate="releasemanagerApp.release.date">Date</span></dt>
+        <dd>
+            <span>{{vm.release.date | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="releasemanagerApp.release.commitId">Commit Id</span></dt>
+        <dd>
+            <span>{{vm.release.commitId}}</span>
+        </dd>
+        <dt><span data-translate="releasemanagerApp.release.config">Config</span></dt>
+        <dd>
+            <span>{{vm.release.config}}</span>
+        </dd>
+        <dt><span data-translate="releasemanagerApp.release.adapters">Adapters</span></dt>
+        <dd>
+            <span>{{vm.release.adapters}}</span>
+        </dd>
+        <dt><span data-translate="releasemanagerApp.release.otherSteps">Other Steps</span></dt>
+        <dd>
+            <span>{{vm.release.otherSteps}}</span>
+        </dd>
+        <dt><span data-translate="releasemanagerApp.release.file">File</span></dt>
+        <dd>
+            <div ng-if="vm.release.file">
+                <a ng-click="vm.openFile(vm.release.fileContentType, vm.release.file)" data-translate="entity.action.open">open</a>
+                {{vm.release.fileContentType}}, {{vm.byteSize(vm.release.file)}}
+            </div>
+        </dd>
+        <dt><span data-translate="releasemanagerApp.release.project">Project</span></dt>
+        <dd>
+            <a ui-sref="project-detail({id:vm.release.project.id})">{{vm.release.project.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="release-detail.edit({id:vm.release.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

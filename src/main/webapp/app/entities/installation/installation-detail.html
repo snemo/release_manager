@@ -1,0 +1,51 @@
+
+<div>
+    <h2><span data-translate="releasemanagerApp.installation.detail.title">Installation</span> {{vm.installation.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="releasemanagerApp.installation.date">Date</span></dt>
+        <dd>
+            <span>{{vm.installation.date | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="releasemanagerApp.installation.notes">Notes</span></dt>
+        <dd>
+            <span>{{vm.installation.notes}}</span>
+        </dd>
+        <dt><span data-translate="releasemanagerApp.installation.success">Success</span></dt>
+        <dd>
+            <span>{{vm.installation.success}}</span>
+        </dd>
+        <dt><span data-translate="releasemanagerApp.installation.adapterErrors">Adapter Errors</span></dt>
+        <dd>
+            <span>{{vm.installation.adapterErrors}}</span>
+        </dd>
+        <dt><span data-translate="releasemanagerApp.installation.configErrors">Config Errors</span></dt>
+        <dd>
+            <span>{{vm.installation.configErrors}}</span>
+        </dd>
+        <dt><span data-translate="releasemanagerApp.installation.otherErrors">Other Errors</span></dt>
+        <dd>
+            <span>{{vm.installation.otherErrors}}</span>
+        </dd>
+        <dt><span data-translate="releasemanagerApp.installation.release">Release</span></dt>
+        <dd>
+            <a ui-sref="release-detail({id:vm.installation.release.id})">{{vm.installation.release.id}}</a>
+        </dd>
+        <dt><span data-translate="releasemanagerApp.installation.instance">Instance</span></dt>
+        <dd>
+            <a ui-sref="instance-detail({id:vm.installation.instance.id})">{{vm.installation.instance.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="installation-detail.edit({id:vm.installation.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,31 @@
+{
+    "releasemanagerApp": {
+        "release" : {
+            "home": {
+                "title": "Releases",
+                "createLabel": "Dodaj Release",
+                "createOrEditLabel": "Dodaj lub edytuj: Release",
+                "search": "Search for Release"
+            },
+            "created": "A new Release is created with identifier {{ param }}",
+            "updated": "A Release is updated with identifier {{ param }}",
+            "deleted": "A Release is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Czy na pewno chcesz usunąć Release {{ id }}?"
+            },
+            "detail": {
+                "title": "Release"
+            },
+            "name": "Name",
+            "description": "Description",
+            "date": "Date",
+            "commitId": "Commit Id",
+            "config": "Config",
+            "adapters": "Adapters",
+            "otherSteps": "Other Steps",
+            "file": "File",
+            "installations": "Installations",
+            "project": "Project"
+        }
+    }
+}

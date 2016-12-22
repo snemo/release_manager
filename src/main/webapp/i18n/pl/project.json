@@ -1,0 +1,25 @@
+{
+    "releasemanagerApp": {
+        "project" : {
+            "home": {
+                "title": "Projects",
+                "createLabel": "Dodaj Project",
+                "createOrEditLabel": "Dodaj lub edytuj: Project",
+                "search": "Search for Project"
+            },
+            "created": "A new Project is created with identifier {{ param }}",
+            "updated": "A Project is updated with identifier {{ param }}",
+            "deleted": "A Project is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Czy na pewno chcesz usunąć Project {{ id }}?"
+            },
+            "detail": {
+                "title": "Project"
+            },
+            "name": "Name",
+            "description": "Description",
+            "releases": "Releases",
+            "instances": "Instances"
+        }
+    }
+}

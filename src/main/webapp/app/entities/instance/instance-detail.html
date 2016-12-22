@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span data-translate="releasemanagerApp.instance.detail.title">Instance</span> {{vm.instance.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="releasemanagerApp.instance.name">Name</span></dt>
+        <dd>
+            <span>{{vm.instance.name}}</span>
+        </dd>
+        <dt><span data-translate="releasemanagerApp.instance.url">Url</span></dt>
+        <dd>
+            <span>{{vm.instance.url}}</span>
+        </dd>
+        <dt><span data-translate="releasemanagerApp.instance.description">Description</span></dt>
+        <dd>
+            <span>{{vm.instance.description}}</span>
+        </dd>
+        <dt><span data-translate="releasemanagerApp.instance.project">Project</span></dt>
+        <dd>
+            <a ui-sref="project-detail({id:vm.instance.project.id})">{{vm.instance.project.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="instance-detail.edit({id:vm.instance.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

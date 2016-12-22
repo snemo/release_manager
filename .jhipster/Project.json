@@ -1,0 +1,35 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "releases",
+            "otherEntityName": "release",
+            "otherEntityRelationshipName": "project"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "instances",
+            "otherEntityName": "instance",
+            "otherEntityRelationshipName": "project"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161029084358",
+    "entityTableName": "project",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "no"
+}

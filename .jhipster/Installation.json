@@ -1,0 +1,51 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "release",
+            "otherEntityName": "release",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "instance",
+            "otherEntityName": "instance",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "date",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "notes",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "success",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "adapterErrors",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "configErrors",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "otherErrors",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161029084301",
+    "entityTableName": "installation",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "no"
+}

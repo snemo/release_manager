@@ -1,0 +1,84 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myInstallationLabel" data-translate="releasemanagerApp.installation.home.createOrEditLabel">Create or edit a Installation</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.installation.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.installation.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="releasemanagerApp.installation.date" for="field_date">Date</label>
+                <div class="input-group">
+                    <input id="field_date" type="text" class="form-control" name="date" uib-datepicker-popup="{{dateformat}}" ng-model="vm.installation.date" is-open="vm.datePickerOpenStatus.date"
+                    required/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('date')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.date.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.date.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="releasemanagerApp.installation.notes" for="field_notes">Notes</label>
+            <input type="text" class="form-control" name="notes" id="field_notes"
+                    ng-model="vm.installation.notes"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="releasemanagerApp.installation.success" for="field_success">Success</label>
+            <input type="checkbox" class="form-control" name="success" id="field_success"
+                    ng-model="vm.installation.success"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="releasemanagerApp.installation.adapterErrors" for="field_adapterErrors">Adapter Errors</label>
+            <input type="text" class="form-control" name="adapterErrors" id="field_adapterErrors"
+                    ng-model="vm.installation.adapterErrors"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="releasemanagerApp.installation.configErrors" for="field_configErrors">Config Errors</label>
+            <input type="text" class="form-control" name="configErrors" id="field_configErrors"
+                    ng-model="vm.installation.configErrors"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="releasemanagerApp.installation.otherErrors" for="field_otherErrors">Other Errors</label>
+            <input type="text" class="form-control" name="otherErrors" id="field_otherErrors"
+                    ng-model="vm.installation.otherErrors"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label data-translate="releasemanagerApp.installation.release" for="field_release">Release</label>
+            <select class="form-control" id="field_release" name="release" ng-model="vm.installation.release" ng-options="release as release.id for release in vm.releases track by release.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label data-translate="releasemanagerApp.installation.instance" for="field_instance">Instance</label>
+            <select class="form-control" id="field_instance" name="instance" ng-model="vm.installation.instance" ng-options="instance as instance.id for instance in vm.instances track by instance.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

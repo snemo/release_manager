@@ -1,0 +1,118 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myReleaseLabel" data-translate="releasemanagerApp.release.home.createOrEditLabel">Create or edit a Release</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.release.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.release.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="releasemanagerApp.release.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                    ng-model="vm.release.name"
+                    required />
+            <div ng-show="editForm.name.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.name.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="releasemanagerApp.release.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="vm.release.description"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="releasemanagerApp.release.date" for="field_date">Date</label>
+                <div class="input-group">
+                    <input id="field_date" type="text" class="form-control" name="date" uib-datepicker-popup="{{dateformat}}" ng-model="vm.release.date" is-open="vm.datePickerOpenStatus.date"
+                    required/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('date')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.date.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.date.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="releasemanagerApp.release.commitId" for="field_commitId">Commit Id</label>
+            <input type="text" class="form-control" name="commitId" id="field_commitId"
+                    ng-model="vm.release.commitId"
+                    required />
+            <div ng-show="editForm.commitId.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.commitId.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="releasemanagerApp.release.config" for="field_config">Config</label>
+            <input type="text" class="form-control" name="config" id="field_config"
+                    ng-model="vm.release.config"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="releasemanagerApp.release.adapters" for="field_adapters">Adapters</label>
+            <input type="text" class="form-control" name="adapters" id="field_adapters"
+                    ng-model="vm.release.adapters"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="releasemanagerApp.release.otherSteps" for="field_otherSteps">Other Steps</label>
+            <input type="text" class="form-control" name="otherSteps" id="field_otherSteps"
+                    ng-model="vm.release.otherSteps"
+                     />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setFile($file, vm.release)">
+            <label class="control-label" data-translate="releasemanagerApp.release.file" for="field_file">File</label>
+            <div>
+                <div ng-if="vm.release.file" class="help-block clearfix">
+                    <a class="pull-left" ng-click="vm.openFile(vm.release.fileContentType, vm.release.file)" data-translate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{vm.release.fileContentType}}, {{vm.byteSize(vm.release.file)}}</span>
+                    <button type="button" ng-click="vm.release.file=null;vm.release.fileContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="button" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setFile($file, vm.release)" data-translate="entity.action.addblob">
+                    Add blob
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="file" id="field_file"
+                    ng-model="vm.release.file"
+                     />
+            <input type="hidden" class="form-control" name="fileContentType" id="field_fileContentType"
+                    ng-model="vm.release.fileContentType" />
+        </div>
+
+        <div class="form-group">
+            <label data-translate="releasemanagerApp.release.project" for="field_project">Project</label>
+            <select class="form-control" id="field_project" name="project" ng-model="vm.release.project" ng-options="project as project.id for project in vm.projects track by project.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

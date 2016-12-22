@@ -1,0 +1,26 @@
+{
+    "releasemanagerApp": {
+        "instance" : {
+            "home": {
+                "title": "Instances",
+                "createLabel": "Create a new Instance",
+                "createOrEditLabel": "Create or edit a Instance",
+                "search": "Search for Instance"
+            },
+            "created": "A new Instance is created with identifier {{ param }}",
+            "updated": "A Instance is updated with identifier {{ param }}",
+            "deleted": "A Instance is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Instance {{ id }}?"
+            },
+            "detail": {
+                "title": "Instance"
+            },
+            "name": "Name",
+            "url": "Url",
+            "description": "Description",
+            "installations": "Installations",
+            "project": "Project"
+        }
+    }
+}

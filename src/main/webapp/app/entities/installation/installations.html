@@ -1,0 +1,95 @@
+<div>
+    <h2 data-translate="releasemanagerApp.installation.home.title">Installations</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="installation.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs"  data-translate="releasemanagerApp.installation.home.createLabel">
+                        Create new Installation
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'releasemanagerApp.installation.home.search' | translate }}">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="date"><span data-translate="releasemanagerApp.installation.date">Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="notes"><span data-translate="releasemanagerApp.installation.notes">Notes</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="success"><span data-translate="releasemanagerApp.installation.success">Success</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="adapterErrors"><span data-translate="releasemanagerApp.installation.adapterErrors">Adapter Errors</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="configErrors"><span data-translate="releasemanagerApp.installation.configErrors">Config Errors</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="otherErrors"><span data-translate="releasemanagerApp.installation.otherErrors">Other Errors</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="release.id"><span data-translate="releasemanagerApp.installation.release">Release</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="instance.id"><span data-translate="releasemanagerApp.installation.instance">Instance</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="installation in vm.installations track by installation.id">
+                    <td><a ui-sref="installation-detail({id:installation.id})">{{installation.id}}</a></td>
+                        <td>{{installation.date | date:'mediumDate'}}</td>
+                    <td>{{installation.notes}}</td>
+                    <td>{{installation.success}}</td>
+                    <td>{{installation.adapterErrors}}</td>
+                    <td>{{installation.configErrors}}</td>
+                    <td>{{installation.otherErrors}}</td>
+                    <td>
+                        <a ui-sref="release-detail({id:installation.release.id})">{{installation.release.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="instance-detail({id:installation.instance.id})">{{installation.instance.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="installation-detail({id:installation.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="installation.edit({id:installation.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="installation.delete({id:installation.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+    </div>
+    <uib-pager total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pager>
+</div>

@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span data-translate="releasemanagerApp.projectUser.detail.title">Project User</span> {{vm.projectUser.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="releasemanagerApp.projectUser.created">Created</span></dt>
+        <dd>
+            <span>{{vm.projectUser.created | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="releasemanagerApp.projectUser.project">Project</span></dt>
+        <dd>
+            <a ui-sref="project-detail({id:vm.projectUser.project.id})">{{vm.projectUser.project.id}}</a>
+        </dd>
+        <dt><span data-translate="releasemanagerApp.projectUser.user">User</span></dt>
+        <dd>
+            {{vm.projectUser.user.id}}
+        </dd>
+        <dt><span data-translate="releasemanagerApp.projectUser.createdBy">Created By</span></dt>
+        <dd>
+            {{vm.projectUser.createdBy.id}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="project-user-detail.edit({id:vm.projectUser.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>
